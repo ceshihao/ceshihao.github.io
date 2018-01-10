@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.3.8"
+    "version": "3.4.4"
   },
   "dependencies": {
     "hexo": "^3.2.0",
@@ -15,10 +15,12 @@
     "hexo-renderer-ejs": "^0.3.0",
     "hexo-renderer-marked": "^0.3.0",
     "hexo-renderer-stylus": "^0.3.1",
-    "hexo-server": "^0.2.0"
+    "hexo-server": "^0.2.0",
+    "hexo-wordcount": "^2.0.1"
   },
   "scripts": {
-    "build": "hexo clean --config source/_data/next.yml && hexo g --config source/_data/next.yml",
-    "publish": "hexo clean --config source/_data/next.yml && hexo g --config source/_data/next.yml && hexo d"
+    "build": "hexo clean && hexo g",
+    "serve": "npm run build && hexo s",
+    "publish": "npm run build && hexo d"
   }
 }

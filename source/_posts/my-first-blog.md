@@ -1,9 +1,8 @@
 ---
 title: My First Blog
 date: 2017-09-06 15:01:19
-tags:
+tags: blog
 ---
-
 
 Hello everyone!
 
