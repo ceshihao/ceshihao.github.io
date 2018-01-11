@@ -360,7 +360,10 @@ han: false
 #duoshuo_shortname:
 
 # Disqus
-disqus_shortname: ceshihao
+disqus:
+  enable: true
+  shortname: ceshihao
+  count: true
 
 # Hypercomments
 #hypercomments_id:
