@@ -1,7 +1,7 @@
 ---
 title: Prepare Statements in Golang MySQL Driver
 date: 2018-01-10 16:27:09
-tags: [golang, mysql driver, prepare statement]
+tags: [golang, mysql-driver, prepare-statement]
 ---
 
 [`go-sql-driver/mysql`](https://github.com/go-sql-driver/mysql) has two kinds of functions `Query()` and `Exec()`.
