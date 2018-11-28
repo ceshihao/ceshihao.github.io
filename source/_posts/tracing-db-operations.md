@@ -39,7 +39,9 @@ import (
 
 # Performance Benchmark
 
-```
+Wrapped MySQL driver does not have obvious performance impact.
+
+```golang
 goos: darwin
 goarch: amd64
 pkg: demo/dbtracing

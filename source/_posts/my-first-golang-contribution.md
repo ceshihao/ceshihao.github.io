@@ -36,7 +36,7 @@ $ go-contrib-init
 $ go get -u golang.org/x/review/git-codereview
 ```
 
-配置指令 alias (这一步建议还是配置一下。一开始我没有配，就会早成文档上的指令还要自己脑力转换一下才能跑……)
+配置指令 alias (这一步建议还是配置一下。一开始我没有配，就会导致文档上的指令还要自己脑力转换一下才能跑……)
 
 ```
 [alias]
