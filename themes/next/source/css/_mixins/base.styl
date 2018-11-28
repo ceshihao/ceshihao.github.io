@@ -53,6 +53,12 @@ desktop() {
 }
 
 desktop-large() {
+  @media (min-width: 1200px) {
+    {block}
+  }
+}
+
+desktop-largest() {
   @media (min-width: 1600px) {
     {block}
   }
@@ -95,4 +101,9 @@ clearfix() {
     display: table;
   }
   &:after { clear: both; }
+}
+
+word-wrap() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }

@@ -1,6 +1,6 @@
 {% if theme.disqus.enable %}
 
-  {% if theme.disqus.count  %}
+  {% if theme.disqus.count %}
     <script id="dsq-count-scr" src="https://{{theme.disqus.shortname}}.disqus.com/count.js" async></script>
   {% endif %}
 
@@ -10,6 +10,9 @@
         this.page.url = '{{ page.permalink }}';
         this.page.identifier = '{{ page.path }}';
         this.page.title = '{{ page.title| addslashes }}';
+        {% if __('disqus') !== 'disqus' -%}
+          this.language = '{{ __('disqus') }}';
+        {% endif -%}
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
@@ -25,8 +28,12 @@
             loadComments();
           } else {
             $(window).on('scroll.disqus_scroll', function () {
-              var scrollTop = document.documentElement.scrollTop;
-              if (scrollTop >= offsetTop) {
+              // offsetTop may changes because of manually resizing browser window or lazy loading images.
+              var offsetTop = $('#comments').offset().top - $(window).height();
+              var scrollTop = $(window).scrollTop();
+
+              // pre-load comments a bit? (margin or anything else)
+              if (offsetTop - scrollTop < 60) {
                 $(window).off('.disqus_scroll');
                 loadComments();
               }
