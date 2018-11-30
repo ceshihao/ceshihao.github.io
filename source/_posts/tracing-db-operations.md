@@ -1,7 +1,7 @@
 ---
 title: Trace MySQL DB Operations in Opentracing System
 date: 2018-11-28 22:17:00
-tags: [golang, opentracing]
+tags: [golang, database, mysql-driver, opentracing]
 ---
 
 # Prerequisite
