@@ -7,17 +7,17 @@ tags: [golang, database, mysql-driver, prepare-statement]
 [`go-sql-driver/mysql`](https://github.com/go-sql-driver/mysql) has two kinds of functions `Query()` and `Exec()`.
 I would like to see how `Query()` works.
 
-# Two Modes
+## Two Modes
 
 `Query(query string, args ...interface{})` function has two modes according to whether there are `args`.
 
-## Plaintext Mode
+### Plaintext Mode
 
 If `Query(query)` is called without `args`, I call it 'Plantext Mode'.
 
 In this mode, driver does NOT do anything on the query string, and just send it directly to MySQL server.
 
-## Interpolation Mode
+### Interpolation Mode
 
 If there are some placeholders in query string (i.e. `?` in MySQL) and some `args` are passed in to interpolate, I call it 'Interpolation Mode'.
 
@@ -31,9 +31,9 @@ In this mode, driver actually does 3 actions
 
 That is exactly the slogan of prepared statement `Prepare Once, Execute Many`.
 
-# Difference
+## Difference
 
-## SQL Injection
+### SQL Injection
 
 Assume you have a table named `prepare`
 
@@ -57,7 +57,7 @@ Everything is fine. Ok, let's have a look at how to implement it in previous two
 
 ```go
 func plaintextQuery(db *sql.DB, id string) *sql.Row {
-	return db.Query("select id, name from prepare where id = " + id + ";")
+    return db.Query("select id, name from prepare where id = " + id + ";")
 }
 ```
 
@@ -65,7 +65,7 @@ func plaintextQuery(db *sql.DB, id string) *sql.Row {
 
 ```go
 func interpolationQuery(db *sql.DB, id string) *sql.Row {
-	return db.Query("select id, name from prepare where id = ?;", id)
+    return db.Query("select id, name from prepare where id = ?;", id)
 }
 ```
 
@@ -73,11 +73,11 @@ When you pass "1" as id, everything is expected. However, is it really OK? Let's
 
 Oops, `interpolationQuery()` still returns the same, but `plaintextQuery()` returns all data in the table which means violated SQL has been injected.
 
-## Performance
+### Performance
 
 I make up a simple insert SQL through the two modes.
 
-```
+```bash
 Inserts Number:  100000
 Plaintext Mode
 Duration 16.058662357s
@@ -88,13 +88,13 @@ Duration 24.076297264s
 It means that `Plaintext Mode` has a better performance than `Interpolation Mode`.
 It is reasonable because `Interpolation Mode` has to do 3 network communications per `Query()` or `Exec()`.
 
-# Conclusion
+## Conclusion
 
 * `Interpolation Mode` can be used to avoid most of SQL injection, which is an important benifit. Therefore, it is highly recommended to use it especially for user input parameters may cause SQL injection.
 
 * `Plaintext Mode` has a better performance to some extent. However, there still some methods to speed up `Interpolation Mode`, I will talk about it later.
 
-# Reference
+## Reference
 
 * [Using Prepared Statements](http://go-database-sql.org/prepared.html)
 * [Golang Mysql笔记（三）--- Prepared剖析](https://www.jianshu.com/p/ee0d2e7bef54)
