@@ -4,15 +4,15 @@ date: 2018-11-28 22:17:00
 tags: [golang, database, mysql-driver, opentracing]
 ---
 
-# Prerequisite
+## Prerequisite
 
 * go >= 1.8
 * mysql driver >= 1.4.0 (with Context support)
 * OpenTracing System (e.g. Zipkin/Jaeger)
 
-# Examples
+## Examples
 
-## Code Examples
+### Code Examples
 
 ```golang
 import (
@@ -24,20 +24,20 @@ import (
 )
 
     sql.Register("instrumented-mysql",
-		instrumentedsql.WrapDriver(mysql.MySQLDriver{},
-			instrumentedsql.WithTracer(opentracing.NewTracer(false)),
-			instrumentedsql.WithOmitArgs(),
-		),
-	)
+        instrumentedsql.WrapDriver(mysql.MySQLDriver{},
+            instrumentedsql.WithTracer(opentracing.NewTracer(false)),
+            instrumentedsql.WithOmitArgs(),
+        ),
+    )
     db, err := sql.Open("instrumented-mysql", dsn)
     // db, err := sql.Open("mysql", dsn)
 ```
 
-## Jaeger Example
+### Jaeger Example
 
 {% asset_img "opentracing-db.png" "Jaeger Example" %}
 
-# Performance Benchmark
+## Performance Benchmark
 
 Wrapped MySQL driver does not have obvious performance impact.
 
@@ -45,19 +45,19 @@ Wrapped MySQL driver does not have obvious performance impact.
 goos: darwin
 goarch: amd64
 pkg: demo/dbtracing
- 
+
 BenchmarkDriverSelect1-8             1000000          1098 ns/op
 BenchmarkWrappedDriverSelect1-8      1000000          1108 ns/op
 BenchmarkDriverPing-8                1000000          1091 ns/op
 BenchmarkWrappedDriverPing-8         1000000          1097 ns/op
- 
+
 PASS
 ok      demo/dbtracing  4.485s
 ```
 
-# Reference
+## Reference
 
-* https://github.com/golang/go/issues/18080
-* https://github.com/go-sql-driver/mysql/pull/445
-* https://github.com/luna-duclos/instrumentedsql
-* https://opencensus.io/
+* [github.com/golang/go/issues/18080](https://github.com/golang/go/issues/18080)
+* [github.com/go-sql-driver/mysql/pull/445](https://github.com/go-sql-driver/mysql/pull/445)
+* [github.com/luna-duclos/instrumentedsql](https://github.com/luna-duclos/instrumentedsql)
+* [opencensus.io](https://opencensus.io/)
