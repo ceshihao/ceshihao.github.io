@@ -5,15 +5,17 @@ date: 2018-01-10 23:11:38
 
 ## 工作经历
 
-2015.01 -- 2019.08 [**Freewheel**](https://www.freewheel.com/) 高级软件工程师
-
-2012.04 -- 2014.12 [**MicroStrategy**](https://www.microstrategy.com/us) 高级软件测试开发工程师
+| 时间 | 公司 | 职位 |
+|----|----|----|
+| 2019.08 -- 至今 | [**阿里云**](https://www.aliyun.com/) | 技术专家 |
+| 2015.01 -- 2019.08 | [**Freewheel**](https://www.freewheel.com/) | 高级软件工程师 |
+| 2012.04 -- 2014.12 | [**MicroStrategy**](https://www.microstrategy.com/) | 高级软件测试开发工程师 |
 
 ---
 
 ## 教育背景
 
-|  |  |  |  |
+| 时间 | 学校 | 专业 | 学位 |
 |----|----|----|----|
 | 2009.09 -- 2012.03 | [**上海交通大学**](https://www.sjtu.edu.cn/) | 电子系 | 硕士 |
 | 2005.09 -- 2009.08 | [**浙江大学**](http://www.zju.edu.cn/) | 信息工程 | 本科 |
@@ -23,6 +25,14 @@ date: 2018-01-10 23:11:38
 ## 开源贡献
 
 github ID: [**ceshihao**](https://github.com/ceshihao)
+
+### 维护
+
+[**ssm-public-documents**](https://github.com/ceshihao/ssm-public-documents) AWS SystemManager Public Documents
+
+* Github Actions 自动更新
+
+### 贡献
 
 [**Kubernetes**](https://github.com/kubernetes/kubernetes/commits?author=ceshihao) Container Management
 
