@@ -124,7 +124,7 @@
 <meta property="og:description" content="问题背景众所周知，Docker 容器时利用 CGroup 对进程使用的资源进行限制的。而旧版本的JVM（低于 8u131）与top&#x2F;free等系统命令有类似的问题，并不会自动识别CGroup的资源限制。这将导致JVM读取和分配的是整台机器的资源，一旦进程使用的资源超过容器的限制就会被Docker杀死，造成Java应用OOM。很明显，Java社区很快也意识到了这个问题，在后续的版本里进行了支持。 8">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-23T15:33:42.000Z">
-<meta property="article:modified_time" content="2021-11-23T07:57:54.871Z">
+<meta property="article:modified_time" content="2021-11-23T08:50:35.086Z">
 <meta property="article:author" content="Zheng Dayu">
 <meta name="twitter:card" content="summary">
 
